@@ -2,7 +2,7 @@ require 'mongo'
 
 class GridfsController < ActionController::Metal
   def serve
-    gridfs_path = env["PATH_INFO"].gsub("/images/", "")
+    gridfs_path = env["PATH_INFO"]
 
     begin
       grid_fs.file = Mongo::GridFileSystem.new(Mongoid.database).open(gridfs_path, 'r')
