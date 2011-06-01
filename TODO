@@ -1,0 +1,5 @@
+TODO
+    * devise aufsetzen
+        - Nutzerautentifizierung
+    * Geotagging überlegen
+        - Spatial MongoDB?
