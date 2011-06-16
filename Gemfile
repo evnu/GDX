@@ -5,7 +5,8 @@ gem 'rails'
 gem 'rspec-rails', :group => [:development, :test]
 gem 'database_cleaner', :group => :test
 gem 'factory_girl_rails', :group => :test
-gem 'cucumber-rails'
+gem 'cucumber-rails', :group => :test
+gem 'capybara', :group => :test
 
 # mongodb related gems
 gem 'mongoid' # orm
