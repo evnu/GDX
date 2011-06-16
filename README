@@ -1,3 +1,7 @@
 == Welcome to GDX
-== Assumptions
-    * Rails 3.1
+GDX is a RoR project to enable sharing geographical data via the internet. It is meant to
+be the sharing hub for project teams aggregating statistical and spatial data for research
+purposes. GDX makes use of MongoDB and GridFS to save big amounts of annotated documents.
+
+All source code in GDX is released under the GPL v3 license, if not stated otherwise.
+See gpl-3.0.txt for the license.
