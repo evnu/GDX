@@ -5,3 +5,4 @@ purposes. GDX makes use of MongoDB and GridFS to save big amounts of annotated d
 
 All source code in GDX is released under the GPL v3 license, if not stated otherwise.
 See gpl-3.0.txt for the license.
+
