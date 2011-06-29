@@ -1,5 +1,7 @@
 TODO
     * devise aufsetzen
-        - Nutzerautentifizierung
+        - Nutzerregistrierung
+            - Erlaube nur Administrator die Registrierung. Dafür muss wahrscheinlich der
+            Controller überschrieben und die Route geändert werden.
     * Geotagging überlegen
         - Spatial MongoDB?
