@@ -1,0 +1,21 @@
+<h1>Listing register_users</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @register_users.each do |register_user| %>
+  <tr>
+    <td><%= link_to 'Show', register_user %></td>
+    <td><%= link_to 'Edit', edit_register_user_path(register_user) %></td>
+    <td><%= link_to 'Destroy', register_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Register user', new_register_user_path %>

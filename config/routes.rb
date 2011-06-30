@@ -5,4 +5,6 @@ GridFS::Application.routes.draw do
   devise_for :users
 
   resources :uploads
+  resources :register_users
+  resources :users
 end
