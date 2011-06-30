@@ -41,7 +41,7 @@ class RegisterUsersController < ApplicationController
   # POST /register_users
   # POST /register_users.xml
   def create
-    @register_user = User.new(params[:register_user])
+    @register_user = User.new(params[:user])
 
     respond_to do |format|
       if @register_user.save
