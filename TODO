@@ -3,5 +3,6 @@ TODO
         - Nutzerregistrierung
             - Erlaube nur Administrator die Registrierung. Dafür muss wahrscheinlich der
             Controller überschrieben und die Route geändert werden.
+        - basic_auth oder etwas anderes um login per Skript zu erlauben
     * Geotagging überlegen
         - Spatial MongoDB?
