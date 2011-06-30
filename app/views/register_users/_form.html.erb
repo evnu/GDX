@@ -1,4 +1,5 @@
-<%= form_for(@register_user) do |f| %>
+<%= form_for @register_user, 
+  :url => {:controller => "register_users", :action => "create"} do |f| %>
   <% if @register_user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@register_user.errors.count, "error") %> prohibited this register_user from being saved:</h2>
