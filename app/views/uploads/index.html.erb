@@ -1,4 +1,9 @@
 <h1>Search</h1>
+<%= form_tag uploads_path, :method => "get" do %>
+  <%= label_tag :keywords %>
+  <%= search_field_tag :keywords %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
 <h1>Listing uploads</h1>
 
 <table>
