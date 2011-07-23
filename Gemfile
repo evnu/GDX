@@ -16,3 +16,6 @@ gem 'carrierwave' # upload files
 
 # devise related
 gem 'devise'
+
+# tagging
+gem "mongoid-simple-tags", "0.0.2"
