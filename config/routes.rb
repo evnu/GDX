@@ -8,6 +8,6 @@ GridFS::Application.routes.draw do
   resources :uploads
   resources :register_users
 
-  resources :users, :only => [:show, :destroy]
+  resources :users, :only => [:show]
   match "/users/sign_up" => "register_users#new"
 end
