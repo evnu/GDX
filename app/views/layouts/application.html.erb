@@ -12,6 +12,12 @@
   <ul class="hmenu">
     <%= render 'devise/menu/login_items' %>
   </ul>
+  <div class="nav">
+    <ul>
+      <li><%= link_to "Home", "/" %> </li>
+      <li><%= link_to "Uploads", "/uploads" %></li>
+    </ul> 
+  </div>
   <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
   <%- end -%>
