@@ -1,6 +1,8 @@
-<h3>Home</h3>
+<h2>Home</h2>
+
+<h3>List of Users</h3>
 <% @users.each do |user| %>
-  <p>User: <%= user.name %></p>
+  <p>User: <%= link_to user.name, user %></p>
 <% end %>
 
 <h3>Uploads</h3>

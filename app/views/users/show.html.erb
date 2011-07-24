@@ -1,19 +1,25 @@
-<h1><%= @user.name %></h1>
+<h2><%= @user.name %></h2>
 <p>
   This is the personal page of <%= @user.name %>. This user uploaded the following 
   files.
 </p>
 
-<h2>List of Files</h2>
+<h3>List of Files</h3>
+<%= paginate @paginated_uploads %>
 <table>
 	<tr>
 		<th>Filename</th>
 		<th>Tags</th>
+    <th></th>
+    <th></th>
 	</tr>
-<% @user.upload.each do |u| %>
-  <tr>
-    <td><%= link_to u.name, u.file.url %></td>
-    <td><%= u.tag_list %></td>
-  </tr>
+  <% @paginated_uploads.each do |u| %>
+    <tr>
+      <td><%= link_to u.name, u.file.url %></td>
+      <td><%= u.tag_list %></td>
+      <td><%= link_to 'Edit', edit_upload_path(u) %></td>
+      <td><%= link_to 'Destroy', u, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
 <% end %>
 </table>
+<%= paginate @paginated_uploads %>

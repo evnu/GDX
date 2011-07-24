@@ -13,28 +13,7 @@ class UploadsController < ApplicationController
       @uploads = Upload.searchByTags(nil) unless params[:keywords]
     end
 
-    # use only the results in the current page
-    # NOTE: this might be a huge performance hit. Why should we first 
-    # get all values and then throw most of them away?
-    # NOTE: we have to determine the number of pages before doing this, because
-    # we have to use the total number of results
-    num_pages = @uploads.count / 20
-    @paginated_uploads = @uploads[20*params[:page].to_i..20*(params[:page].to_i+1)] if params[:page]
-    @paginated_uploads = @uploads[0..20] unless params[:page]
-
-    # make kaminari work with an array
-    # see http://code.dblock.org/mongoid-202-dropped-pagination-kaminari
-    @paginated_uploads.instance_eval <<-EVAL
-        def current_page
-          #{params[:page] || 1}
-        end
-        def num_pages
-          #{num_pages}
-        end
-        def limit_value                                                                               
-          20
-        end
-    EVAL
+    @paginated_uploads = Upload.paginate_array @uploads, params
 
     respond_to do |format|
       format.html # index.html.erb
