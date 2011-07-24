@@ -1,0 +1,19 @@
+<h1><%= @user.name %></h1>
+<p>
+  This is the personal page of <%= @user.name %>. This user uploaded the following 
+  files.
+</p>
+
+<h2>List of Files</h2>
+<table>
+	<tr>
+		<th>Filename</th>
+		<th>Tags</th>
+	</tr>
+<% @user.upload.each do |u| %>
+  <tr>
+    <td><%= link_to u.name, u.file.url %></td>
+    <td><%= u.tag_list %></td>
+  </tr>
+<% end %>
+</table>
