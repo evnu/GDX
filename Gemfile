@@ -19,3 +19,6 @@ gem 'devise'
 
 # tagging
 gem "mongoid-simple-tags", "0.0.2"
+
+# pagination
+gem 'kaminari'

@@ -11,7 +11,9 @@
 <% end %>
 <h1>Listing uploads</h1>
 
-<% if not @uploads.empty? %>
+<% if not @paginated_uploads.empty? %>
+  <%= paginate @paginated_uploads %>
+  <br />
 
   <table>
     <tr>
@@ -25,7 +27,7 @@
       <th></th>
     </tr>
 
-    <% @uploads.each do |upload| %>
+    <% @paginated_uploads.each do |upload| %>
       <tr>
         <td><%= upload.name %></td>
         <td><%= upload.description %></td>
@@ -38,6 +40,8 @@
       </tr>
     <% end %>
   </table>
+  <br />
+  <%= paginate @paginated_uploads %>
 <% end %>
 
 <%= link_to 'New Upload', new_upload_path %>
