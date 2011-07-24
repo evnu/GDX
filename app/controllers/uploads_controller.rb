@@ -4,10 +4,13 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
-    @uploads = Upload.searchByTags(params[:keywords][:taglist])
-
-    if @uploads.empty?
-      flash[:alert] = t('uploads.no_files_found')
+    if params[:keywords] # if searching
+      @uploads = Upload.searchByTags(params[:keywords][:taglist]) if params[:keywords]
+      if @uploads.empty?
+        flash[:alert] = t('uploads.no_files_found')
+      end
+    else
+      @uploads = Upload.searchByTags(nil) unless params[:keywords]
     end
 
     respond_to do |format|
@@ -46,16 +49,23 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.xml
   def create
-    @upload = Upload.new(params[:upload])
+    @uploader = User.where(:email => current_user.email)
+    if @uploader
+      @upload = Upload.new(params[:upload].merge({:user => @uploader.first}))
 
-    respond_to do |format|
-      if @upload.save
-        format.html { redirect_to(@upload, :notice => 'Upload was successfully created.') }
-        format.xml  { render :xml => @upload, :status => :created, :location => @upload }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @upload.errors, :status => :unprocessable_entity }
+      respond_to do |format|
+        if @upload.save
+          format.html { redirect_to(@upload, :notice => 'Upload was successfully created.') }
+          format.xml  { render :xml => @upload, :status => :created, :location => @upload }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @upload.errors, :status => :unprocessable_entity }
+        end
       end
+    else
+      flash[:error] = t('uploads.user_not_found')
+      format.html { render :action => "new" }
+      format.xml  { render :xml => @upload.errors, :status => :unprocessable_entity }
     end
   end
 

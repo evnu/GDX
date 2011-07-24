@@ -48,3 +48,5 @@ en:
         subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'
+    information:
+      logged_in_as: 'You are logged in as'

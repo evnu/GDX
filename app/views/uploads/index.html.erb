@@ -18,6 +18,7 @@
       <th>Name</th>
       <th>Description</th>
       <th>Tags</th>
+      <th>Uploader</th>
       <th>File</th>
       <th></th>
       <th></th>
@@ -29,6 +30,7 @@
         <td><%= upload.name %></td>
         <td><%= upload.description %></td>
         <td><%= upload.tag_list %></td>
+        <td><%= link_to upload.user.email, user_path(upload.user) if upload.user %></td>
         <td><%= link_to upload.name, upload.file.url %></td>
         <td><%= link_to 'Show', upload %></td>
         <td><%= link_to 'Edit', edit_upload_path(upload) %></td>
