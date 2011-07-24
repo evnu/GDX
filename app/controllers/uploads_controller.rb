@@ -4,7 +4,7 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
-    @uploads = Upload.all
+    @uploads = Upload.searchByTags(params[:keywords])
 
     respond_to do |format|
       format.html # index.html.erb
