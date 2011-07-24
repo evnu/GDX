@@ -7,9 +7,9 @@ class Upload
   mount_uploader :file, FileUploader
 
   def self.searchByTags(params)
-    return Upload.all if params == nil
+    return Upload.all unless params
     results = []
-    params.each do |tag|
+    params.split(/[ ,]/).each do |tag|
       results |= Upload.tagged_with tag
     end
     return results

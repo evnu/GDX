@@ -4,7 +4,11 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
-    @uploads = Upload.searchByTags(params[:keywords])
+    @uploads = Upload.searchByTags(params[:keywords][:taglist])
+
+    if @uploads.empty?
+      flash[:alert] = t('uploads.no_files_found')
+    end
 
     respond_to do |format|
       format.html # index.html.erb
