@@ -12,7 +12,9 @@
   as a user to access that page.
 </p>
 
-<h3>Administration Links</h3>
-<ul>
-  <li><%= link_to "Create User", "/register_users" %></li>
-</ul>
+<% if admin_signed_in? or Rails.env.development? %>
+  <h3>Administration Links</h3>
+  <ul>
+    <li><%= link_to "Create User", "/register_users" %></li>
+  </ul>
+<% end %>
