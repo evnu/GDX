@@ -1,11 +1,9 @@
-<h2>Home</h2>
-
-<h3>List of Users</h3>
+<h2 class="entry-title">List of Users</h2>
 <% @users.each do |user| %>
   <p>User: <%= link_to user.name, user %></p>
 <% end %>
 
-<h3>Uploads</h3>
+<h2 class="entry-title">Uploads</h2>
 <p>
   You can find a searchable list of uploads by following the link
   <%= link_to "/uploads", "/uploads" %>. Note that you have to be authenticated
@@ -13,7 +11,7 @@
 </p>
 
 <% if admin_signed_in? or Rails.env.development? %>
-  <h3>Administration Links</h3>
+  <h2 class="entry-title">Administration Links</h2>
   <ul>
     <li><%= link_to "Create User", "/register_users" %></li>
   </ul>

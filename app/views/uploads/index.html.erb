@@ -1,4 +1,4 @@
-<h2>Search</h2>
+<h2 class="entry-title">Search</h2>
 <p>
   Search/Filter uploaded data sets by tags. Insert the tags you want to use in the following 
   input field and separate them either by , or a whitespace.
@@ -9,7 +9,7 @@
                                                                             :tokens => [","," "]} %>
   <%= submit_tag "Search", :name => nil %>
 <% end %>
-<h2>Listing uploads</h2>
+<h2 class="entry-title">Listing uploads</h2>
 
 <% if not @paginated_uploads.empty? %>
   <%= paginate @paginated_uploads %>
