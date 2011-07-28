@@ -1,6 +1,10 @@
-<h2>Editing upload</h2>
+<% content_for :title do %>
+Editing upload
+<% end %>
 
+<% content_for :content do %>
 <%= render 'form' %>
 
 <%= link_to 'Show', @upload %> |
 <%= link_to 'Back', uploads_path %>
+<% end %>

@@ -1,48 +1,52 @@
-<h2 class="entry-title">Search</h2>
-<p>
+<% content_for :title do %>
+  Search
+<% end %>
+<% content_for :content do %>
+  <p>
   Search/Filter uploaded data sets by tags. Insert the tags you want to use in the following 
   input field and separate them either by , or a whitespace.
-</p>
-<%= form_tag uploads_path, :method => "get" do %>
-  <%= label_tag :keywords %>
-  <%= text_field_with_auto_complete :keywords, :taglist, { :size => 15 }, { :url => "tags/index.js", :method => :get, :param_name => 'tag',
-                                                                            :tokens => [","," "]} %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-<h2 class="entry-title">Listing uploads</h2>
-
-<% if not @paginated_uploads.empty? %>
-  <%= paginate @paginated_uploads %>
-  <br />
-
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Tags</th>
-      <th>Uploader</th>
-      <th>File</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-
-    <% @paginated_uploads.each do |upload| %>
-      <tr>
-        <td><%= upload.name %></td>
-        <td><%= upload.description %></td>
-        <td><%= upload.tag_list %></td>
-        <td><%= link_to upload.user.email, user_path(upload.user) if upload.user %></td>
-        <td><%= link_to upload.name, upload.file.url %></td>
-        <td><%= link_to 'Show', upload %></td>
-        <td><%= link_to 'Edit', edit_upload_path(upload) if upload.user == current_user or admin_signed_in? %></td>
-        <td><%= link_to 'Destroy', upload, :confirm => 'Are you sure?', 
-          :method => :delete if upload.user == current_user or admin_signed_in? %></td>
-      </tr>
+  </p>
+  <%= form_tag uploads_path, :method => "get" do %>
+    <%= label_tag :keywords %>
+    <%= text_field_with_auto_complete :keywords, :taglist, { :size => 15 }, { :url => "tags/index.js", :method => :get, :param_name => 'tag',
+      :tokens => [","," "]} %>
+      <%= submit_tag "Search", :name => nil %>
     <% end %>
-  </table>
-  <br />
-  <%= paginate @paginated_uploads %>
-<% end %>
+    <h2 class="entry-title">Listing uploads</h2>
 
-<%= link_to 'New Upload', new_upload_path %>
+    <% if not @paginated_uploads.empty? %>
+      <%= paginate @paginated_uploads %>
+      <br />
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Tags</th>
+          <th>Uploader</th>
+          <th>File</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @paginated_uploads.each do |upload| %>
+          <tr>
+            <td><%= upload.name %></td>
+            <td><%= upload.description %></td>
+            <td><%= upload.tag_list %></td>
+            <td><%= link_to upload.user.email, user_path(upload.user) if upload.user %></td>
+            <td><%= link_to upload.name, upload.file.url %></td>
+            <td><%= link_to 'Show', upload %></td>
+            <td><%= link_to 'Edit', edit_upload_path(upload) if upload.user == current_user or admin_signed_in? %></td>
+            <td><%= link_to 'Destroy', upload, :confirm => 'Are you sure?', 
+              :method => :delete if upload.user == current_user or admin_signed_in? %></td>
+          </tr>
+        <% end %>
+      </table>
+      <br />
+      <%= paginate @paginated_uploads %>
+    <% end %>
+
+    <%= link_to 'New Upload', new_upload_path %>
+  <% end %>

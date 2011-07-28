@@ -1,5 +1,8 @@
-<h1>Listing register_users</h1>
+<% content_for :title do %>
+Listing register_users
+<% end %>
 
+<% content_for :content do %>
 <table>
   <tr>
     <th>Name</th>
@@ -9,17 +12,18 @@
     <th></th>
   </tr>
 
-<% @register_users.each do |register_user| %>
-  <tr>
-    <td><%= register_user.name %></td>
-    <td><%= register_user.email %></td>
-    <td><%= link_to 'Show', "#{register_user._id}" %></td>
-    <td><%= link_to 'Edit', edit_register_user_path(register_user) %></td>
-    <td><%= link_to 'Destroy', "#{register_user._id}", :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @register_users.each do |register_user| %>
+    <tr>
+      <td><%= register_user.name %></td>
+      <td><%= register_user.email %></td>
+      <td><%= link_to 'Show', "#{register_user._id}" %></td>
+      <td><%= link_to 'Edit', edit_register_user_path(register_user) %></td>
+      <td><%= link_to 'Destroy', "#{register_user._id}", :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Register user', new_register_user_path %>
+<% end %>

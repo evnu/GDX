@@ -36,12 +36,13 @@
     <div id="main">
       <div id="primary">
         <div id="content" role="main">
+          <h2 class="entry-title"><%= yield :title %></h2>
           <div class="entry-content">
                     <%- flash.each do |name, msg| -%>
                       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
                     <%- end -%>
           
-                    <%= yield %>
+                    <%= yield :content %>
           </div>
         </div>
       </div>

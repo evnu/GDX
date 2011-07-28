@@ -1,5 +1,9 @@
-<h1>New register_user</h1>
+<% content_for :title do %>
+New register_user
+<% end %>
 
+<% content_for :content do %>
 <%= render 'form' %>
 
 <%= link_to 'Back', register_users_path %>
+<% end %>

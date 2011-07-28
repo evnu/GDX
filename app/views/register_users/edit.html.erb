@@ -1,6 +1,10 @@
-<h1>Editing register_user</h1>
+<% content_for :title %>
+Editing register_user
+<% end %>
 
+<% content_for :content %>
 <%= render 'form' %>
 
 <%= link_to 'Show', @register_user %> |
 <%= link_to 'Back', register_users_path %>
+<% end %>

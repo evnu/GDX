@@ -1,5 +1,12 @@
+<% content_for :title do %>
+  Show
+<% end %>
+
+<% content_for :content do %>
 <p id="notice"><%= notice %></p>
 
 
 <%= link_to 'Edit', edit_register_user_path(@register_user) %> |
 <%= link_to 'Back', register_users_path %>
+
+<% end %>
