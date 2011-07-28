@@ -22,3 +22,5 @@ gem "mongoid-simple-tags", "0.0.2"
 
 # pagination
 gem 'kaminari'
+
+gem 'tiny_mce'
