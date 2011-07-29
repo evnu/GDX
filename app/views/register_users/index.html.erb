@@ -16,9 +16,9 @@ Listing register_users
     <tr>
       <td><%= register_user.name %></td>
       <td><%= register_user.email %></td>
-      <td><%= link_to 'Show', "#{register_user._id}" %></td>
+      <td><%= link_to 'Show', register_user %></td>
       <td><%= link_to 'Edit', edit_register_user_path(register_user) %></td>
-      <td><%= link_to 'Destroy', "#{register_user._id}", :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Destroy', "/register_users/#{register_user._id}/", :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
