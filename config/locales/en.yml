@@ -5,3 +5,5 @@ en:
   uploads:
     no_files_found: 'No files found. Please adjust your search.'
     user_not_found: 'Emailaddress of this user not found. Please send an email to the administrator' 
+  register_users:
+    user_created: 'created successfully'

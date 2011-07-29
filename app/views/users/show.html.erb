@@ -1,8 +1,8 @@
-<% content_for :title %>
+<% content_for :title do %>
 <%= @user.name %>
 <% end %>
 
-<% content_for :content %>
+<% content_for :content do %>
 <p>
 This is the personal page of <%= @user.name %>. This user uploaded the following 
 files.

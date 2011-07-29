@@ -45,8 +45,8 @@ class RegisterUsersController < ApplicationController
 
     respond_to do |format|
       if @register_user.save
-        format.html { redirect_to("/users/sign_up", :notice => 'Register user was successfully created.') }
-        format.xml  { render :xml => "/users/sign_up", :status => :created, :location => @register_user }
+        format.html { redirect_to(@register_user, :notice => "#{@register_user.name} #{t('register_users.user_created')}") }
+        format.xml  { render :xml => @register_user, :status => :created, :location => @register_user }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @register_user.errors, :status => :unprocessable_entity }

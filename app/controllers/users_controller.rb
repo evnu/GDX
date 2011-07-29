@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @paginated_uploads = Upload.paginate_array @user.upload, params
+    if params[:id]
+      @user = User.find(params[:id])
+      @paginated_uploads = Upload.paginate_array @user.upload, params
+    else
+      flash[:error]  = "No user given"
+    end
   end
 end
