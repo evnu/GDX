@@ -2,6 +2,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  layout:
+    assitive:
+      main_menu : "Main Menu"
   uploads:
     no_files_found: 'No files found. Please adjust your search.'
     user_not_found: 'Emailaddress of this user not found. Please send an email to the administrator' 
