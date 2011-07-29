@@ -27,8 +27,8 @@
       <h3 class="assistive-text"><%= t('assistive.main_menu') %></h3>
             <div class="menu">
                         <ul>
-                          <li class="current_page_item"><%= link_to "Home", "/" %> </li>
-                          <li class="page_item page-item-2"><%= link_to "Uploads", "/uploads" %></li>
+                          <li class="<%= highlight_link("home") %>"><%= link_to "Home", "/" %> </li>
+                          <li class="<%= highlight_link("uploads") %>"><%= link_to "Uploads", "/uploads" %></li>
                         </ul> 
             </div>
       </nav>
