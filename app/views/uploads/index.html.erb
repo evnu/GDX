@@ -1,6 +1,7 @@
 <% content_for :title do %>
   Search
 <% end %>
+
 <% content_for :content do %>
   <p>
   Search/Filter uploaded data sets by tags. Insert the tags you want to use in the following 
@@ -49,4 +50,15 @@
     <% end %>
 
     <%= link_to 'New Upload', new_upload_path %>
+<% end %>
+
+<% content_for :widgettitle do %>
+  Tags
+<% end %>
+<% content_for :widget do %>
+<ul>
+  <% Upload.all_tags({:sort => [:_id, :asc], :limit => 20}).each do |tag| %>
+    <li><%= "#{tag[:name]} (#{tag[:count]})" %></li>
   <% end %>
+</ul>
+<% end %>
