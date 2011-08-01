@@ -53,11 +53,11 @@ class UploadsController < ApplicationController
   # POST /uploads.xml
   def create
     @uploader = User.where(:email => current_user.email)
-    if @uploader
+    if @uploader and params[:upload]
       @upload = Upload.new(params[:upload].merge({:user => @uploader.first}))
 
       respond_to do |format|
-        if @upload.save
+        if @upload.save a
           format.html { redirect_to(@upload, :notice => 'Upload was successfully created.') }
           format.xml  { render :xml => @upload, :status => :created, :location => @upload }
         else
