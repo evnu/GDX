@@ -13,7 +13,7 @@ gem 'mongoid' # orm
 gem 'mongoid-rspec', :group => :test
 gem 'bson_ext' # faster bson implementation
 gem 'carrierwave'
-gem 'carrierwave-mongoid', :git => "https://github.com/jnicklas/carrierwave-mongoid.git"
+gem 'carrierwave-mongoid', :require => "carrierwave/mongoid", :git => "https://github.com/jnicklas/carrierwave-mongoid.git"
 
 # devise related
 gem 'devise'
