@@ -1,4 +1,8 @@
-<h2>Sign up</h2>
+<% content_for :title do %>
+Sign up
+<% end %>
+
+<% content_for :content do %>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -19,3 +23,4 @@
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+<% end %>
