@@ -12,7 +12,8 @@ gem 'capybara', :group => :test
 gem 'mongoid' # orm
 gem 'mongoid-rspec', :group => :test
 gem 'bson_ext' # faster bson implementation
-gem 'carrierwave' # upload files
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :git => "https://github.com/jnicklas/carrierwave-mongoid.git"
 
 # devise related
 gem 'devise'
