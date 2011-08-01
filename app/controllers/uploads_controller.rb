@@ -57,7 +57,7 @@ class UploadsController < ApplicationController
       @upload = Upload.new(params[:upload].merge({:user => @uploader.first}))
 
       respond_to do |format|
-        if @upload.save a
+        if @upload.save
           format.html { redirect_to(@upload, :notice => 'Upload was successfully created.') }
           format.xml  { render :xml => @upload, :status => :created, :location => @upload }
         else
