@@ -10,4 +10,7 @@ GridFS::Application.routes.draw do
 
   resources :users, :only => [:show]
   match "/users/sign_up" => "register_users#new"
+
+  # serve files using gridfs
+  match "/files/uploads/*path" => "gridfs#serve"
 end

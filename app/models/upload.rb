@@ -1,7 +1,11 @@
+require 'carrierwave/mongoid'
+
 class Upload
   include Mongoid::Document
   include Mongoid::Document::Taggable
   belongs_to :user
+
+  mount_uploader :file, FileUploader
 
   field :name, :type => String
   field :description, :type => String
@@ -10,8 +14,6 @@ class Upload
   validates_presence_of :user
 
   validates_length_of :description, :in => 0..500
-
-  mount_uploader :file, FileUploader
 
   def self.searchByTags(params)
     return Upload.all unless params
