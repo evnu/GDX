@@ -34,7 +34,7 @@
         <% @paginated_uploads.each do |upload| %>
           <tr>
             <td><%= upload.name %></td>
-            <td><%= upload.description %></td>
+            <td><%= raw upload.description %></td>
             <td><%= upload.tag_list %></td>
             <td><%= link_to upload.user.email, user_path(upload.user) if upload.user %></td>
             <td><%= link_to upload.name, upload.file.url %></td>
