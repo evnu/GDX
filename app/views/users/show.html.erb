@@ -8,6 +8,7 @@ This is the personal page of <%= @user.name %>. This user uploaded the following
 files.
 </p>
 
+<% if user_signed_in? %>
 <h3>List of Files</h3>
 <%= paginate @paginated_uploads %>
 <table>
@@ -27,4 +28,6 @@ files.
   <% end %>
 </table>
 <%= paginate @paginated_uploads %>
+<% end %>
+
 <% end %>
