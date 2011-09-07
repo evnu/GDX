@@ -9,6 +9,8 @@ class Upload
   validates_presence_of :name
   validates_presence_of :user
 
+  validates_length_of :description, :in => 0..500
+
   mount_uploader :file, FileUploader
 
   def self.searchByTags(params)
