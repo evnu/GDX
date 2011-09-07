@@ -1,4 +1,5 @@
 TODO
+    * Unit tests für das frontend
     * Geotagging überlegen
         - Spatial MongoDB?
     * README
