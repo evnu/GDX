@@ -7,6 +7,7 @@ class Admin
          :rememberable, :trackable, :validatable
   field :name, :type => String
   validates_presence_of :name
+  validates :email, :email => true, :presence => true
   validates_uniqueness_of :name, :email, :case_sensitive => false
   attr_accessible :name, :email, :password
 end
