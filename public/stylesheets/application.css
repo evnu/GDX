@@ -35,7 +35,8 @@ div.nav ul li {
 
 /* Background colors */
 .white-background {
-  background-color: red;
+  background-color: white;
+  opacity: 0.6;
 }
 
 .margin {
