@@ -10,8 +10,22 @@
   </head>
   <body class="home blog single-author two-column right-sidebar">
     <div id="page" class="hfeed">
-      <header id="branding" role="banner" style="background-image: 
-      url('/images/scaled.JPG'); background-repeat: no-repeat">
+    <noscript>
+      <header id="branding" role="banner" style="background-image: url('/images/scaled.JPG'); background-repeat: no-repeat">
+    </noscript>
+    <script type="text/javascript">
+      var imagenumber = 5 ;
+      var randomnumber = Math.random() ;
+      var rand1 = Math.round( (imagenumber-1) * randomnumber) + 1 ;
+      images = new Array ;
+      images[1] = "/images/scaled.JPG";
+      images[2] = "/images/scaled2.JPG";
+      images[3] = "/images/scaled3.JPG";
+      images[4] = "/images/scaled4.JPG";
+      images[5] = "/images/scaled5.JPG";
+      var image = images[rand1];
+      document.write('<header id="branding" role="banner" style="background-image: url(' + image + '); background-repeat: no-repeat">');
+      </script>
       <hgroup>
       <h1 id="site-title"><a href="http://0.0.0.0:3000/"><span 
             style="background-color: white; padding: 5px; color: 
