@@ -30,3 +30,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'mongoid-rspec'
 end
+
+# xss prevention
+gem 'acts_as_sanitiled'
