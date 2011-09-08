@@ -14,15 +14,15 @@
       <h1 id="site-title"><%= link_to "GDX", "/" %></h1>
       <h2 id="site-title">Geographical Data eXchange</h2>
     </hgroup>
-    <img src="http://studium.moritzborgmann.de/wp-content/themes/twentyeleven/images/headers/trolley.jpg" width="1000" height="288" alt="" />
-    <form method="get" id="searchform" action="http://studium.moritzborgmann.de/">
+    <%= image_tag("scaled.JPG") %>
+    <div id="searchform">
 
       <div class="nav">
         <ul class="hmenu">
           <%= render 'devise/menu/login_items' %>
         </ul>
       </div>
-	</form>
+	</div>
       <nav id="access" role="navigation">
       <h3 class="assistive-text"><%= t('assistive.main_menu') %></h3>
             <div class="menu">
