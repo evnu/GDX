@@ -7,6 +7,7 @@
   Search/Filter uploaded data sets by tags. Insert the tags you want to use in the following 
   input field and separate them either by , or a whitespace.
   </p>
+  <%= link_to 'New Upload', new_upload_path %>
   <%= form_tag uploads_path, :method => "get" do %>
     <%= label_tag :keywords %>
     <%= text_field_with_auto_complete :keywords, :taglist, { :size => 15 }, { :url => "tags/index.js", :method => :get, :param_name => 'tag',
@@ -15,8 +16,12 @@
     <% end %>
     <h2 class="entry-title">Listing uploads</h2>
 
+    <% if not @uploads.empty? %>
+      <% (0..@paginated_uploads.num_pages-1).each do |page| %>
+        <%= link_to_unless_current "#{page + 1}", request.parameters.merge({:page => page, :keywords => params[:keywords] }) %>
+      <% end %>
+    <% end %>
     <% if not @paginated_uploads.empty? %>
-      <%= paginate @paginated_uploads %>
       <br />
 
       <table>
@@ -58,11 +63,12 @@
           <% end %>
         </tbody>
       </table>
-      <br />
-      <%= paginate @paginated_uploads %>
     <% end %>
-
-    <%= link_to 'New Upload', new_upload_path %>
+    <% if not @uploads.empty? %>
+      <% (0..@paginated_uploads.num_pages-1).each do |page| %>
+        <%= link_to_unless_current "#{page + 1}", request.parameters.merge({:page => page, :keywords => params[:keywords] }) %>
+      <% end %>
+    <% end %>
 <% end %>
 
 <% content_for :widgettitle do %>
