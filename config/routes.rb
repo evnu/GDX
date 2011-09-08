@@ -1,6 +1,7 @@
 GridFS::Application.routes.draw do
   root :to => "home#index"
   get "tags/index"
+  match "/help" => "help#index"
 
   devise_for :admins
   devise_for :users
