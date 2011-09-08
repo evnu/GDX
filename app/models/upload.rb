@@ -1,13 +1,9 @@
 require 'carrierwave/mongoid'
-require 'acts_as_sanitiled'
 
 class Upload
   include Mongoid::Document
   include Mongoid::Document::Taggable
   belongs_to :user
-
-  acts_as_sanitiled :name
-  acts_as_sanitiled :description
 
   mount_uploader :file, FileUploader
 

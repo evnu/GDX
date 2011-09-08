@@ -1,3 +1,6 @@
+require 'sanitizer'
+require 'html/sanitizer'
+
 class UploadsController < ApplicationController
   before_filter :authenticate_user!
   uses_tiny_mce :only => [:new, :create, :edit, :update]
