@@ -11,6 +11,7 @@ class UploadsController < ApplicationController
         flash[:alert] = t('uploads.no_files_found')
       end
     else
+      flash[:warning] = t('uploads.empty_search') if params[:keywords]
       @uploads = Upload.searchByTags(nil)
     end
 

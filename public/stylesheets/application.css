@@ -20,7 +20,7 @@ div.nav ul li {
 
 /* flashes */
 
-#flash_notice, #flash_alert {
+#flash_notice, #flash_alert, #flash_warning {
   padding: 5px 8px;
   margin: 10px 0;
 }
@@ -31,6 +31,10 @@ div.nav ul li {
 #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
+}
+#flash_warning {
+  background-color: #FFC;
+  border: solid 1px #CC6;
 }
 
 /* Background colors */
