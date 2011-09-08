@@ -76,7 +76,7 @@ body {
 	max-width: 1000px;
 }
 #branding hgroup {
-	margin: 0 7.6%;
+	margin: 0;
 }
 #access div {
 	margin: 0 7.6%;
@@ -622,8 +622,8 @@ a:hover {
 /* Search Form */
 #branding #searchform {
 	position: absolute;
-	top: 3.8em;
-	right: 7.6%;
+	top: 6.8em;
+	right: 0.0%;
 	text-align: right;
 }
 #branding #searchform div {
@@ -2505,7 +2505,7 @@ p.comment-form-comment {
 		padding: 0;
 	}
 	#branding hgroup {
-		margin: 0;
+		margin: 0 7.6%;
 	}
 	#site-title a {
 		font-size: 21pt;

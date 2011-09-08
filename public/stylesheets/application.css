@@ -32,3 +32,12 @@ div.nav ul li {
   background-color: #FCC;
   border: solid 1px #C66;
 }
+
+/* Background colors */
+.white-background {
+  background-color: red;
+}
+
+.margin {
+  margin: 0 7.6%;
+}

@@ -10,18 +10,23 @@
   </head>
   <body class="home blog single-author two-column right-sidebar">
     <div id="page" class="hfeed">
-      <header id="branding" role="banner" style="background-image: url(/images/scaled.JPG)">
+      <header id="branding" role="banner" style="background-image: 
+      url('/images/scaled.JPG'); background-repeat: no-repeat">
       <hgroup>
-      <h1 id="site-title"><%= link_to "GDX", "/", :class => "white-background" %></h1>
-      <h2 id="site-description">Geographical Data eXchange</h2>
+      <h1 id="site-title"><a href="http://0.0.0.0:3000/"><span 
+            style="background-color: white; padding: 5px; color: 
+            #7A7A7A">GDX</span></a></h1>
+      <h2 id="site-description"><span style="background-color: white; 
+          padding: 5px">Geographical Data eXchange</span></h2>
       <div id="searchform">
-        <div class="nav">
-          <ul class="hmenu">
-            <%= render 'devise/menu/login_items' %>
-          </ul>
+        <div class="nav" style="background-color: white;">
+          <span style="color: #7A7A7A;">
+            <ul class="hmenu" style="padding: 5px">
+              <%= render 'devise/menu/login_items' %>
+            </ul>
+          </div>
         </div>
-      </div>
-      </hgroup>
+        </hgroup>
       <nav id="access" role="navigation">
       <h3 class="assistive-text"><%= t('assistive.main_menu') %></h3>
             <div class="menu">
