@@ -39,9 +39,9 @@
             <tr>
               <td><%= link_to upload.name, upload %></td>
               <td>
-                <a href="#" onClick="unfold('<%= upload.name %>'); return 
+                <a href="#" onClick="unfold('<%= upload._id %>'); return 
                   false;">&#9658;Unfold description</a>
-                <div id="<%= upload.name %>" style="display:none">
+                <div id="<%= upload._id %>" style="display:none">
                   <%= raw upload.description %>
 
                 </div>
