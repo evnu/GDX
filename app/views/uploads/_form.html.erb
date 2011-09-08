@@ -16,7 +16,13 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :contains_raster_data %>
+    <%= f.check_box :contains_raster_data %>
+    <%= f.label :contains_vector_data %>
+    <%= f.check_box :contains_vector_data %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
     <%= f.text_area :description, :class => "mceEditor" %>
   </div>
 
