@@ -11,16 +11,24 @@
   </p>
 
   <p>
+  <b>Data Type:</b>
+  <ul>
+    <li>The package contains <%= "no" if not @upload.contains_vector_data %> vector data.</li>
+    <li>The package contains <%= "no" if not @upload.contains_raster_data %> raster data.</li>
+  </ul>
+  </p>
+
+  <p>
   <b>Description:</b>
   <%= raw @upload.description %>
   </p>
 
   <p>
-  <b>Tags.</b>
-  <%= @upload.tag_list %>
+  <b>Tags:</b>
+  <%= @upload.tag_list.empty? ? (raw "&#8212;") : @upload.tag_list %>
   </p>
 
 
-  <%= link_to 'Edit', edit_upload_path(@upload) %> |
+  <%= link_to 'Edit', edit_upload_path(@upload) if @upload.user == current_user or admin_signed_in? %> |
   <%= link_to 'Back', uploads_path %>
 <% end %>

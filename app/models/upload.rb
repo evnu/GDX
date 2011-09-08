@@ -13,6 +13,8 @@ class Upload
 
   field :name, :type => String
   field :description, :type => String
+  field :contains_raster_data, :type => Boolean
+  field :contains_vector_data, :type => Boolean
 
   validates_presence_of :name
   validates_presence_of :user

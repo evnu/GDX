@@ -5,13 +5,14 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
-    if params[:keywords] # if searching
+    if params[:keywords] and not params[:keywords][:taglist].empty?
       @uploads = Upload.searchByTags(params[:keywords][:taglist])
       if @uploads.empty?
         flash[:alert] = t('uploads.no_files_found')
       end
     else
-      @uploads = Upload.searchByTags(nil) unless params[:keywords]
+      flash[:warning] = t('uploads.empty_search') if params[:keywords]
+      @uploads = Upload.searchByTags(nil)
     end
 
     @paginated_uploads = Upload.paginate_array @uploads, params
