@@ -4,25 +4,24 @@
     <title>GridFS</title>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "unfold" %>
     <%= csrf_meta_tag %>
     <%= include_tiny_mce_if_needed %>
   </head>
   <body class="home blog single-author two-column right-sidebar">
     <div id="page" class="hfeed">
-      <header id="branding" role="banner">
+      <header id="branding" role="banner" style="background-image: url(/images/scaled.JPG)">
       <hgroup>
-      <h1 id="site-title"><%= link_to "GDX", "/" %></h1>
-      <h2 id="site-title">Geographical Data eXchange</h2>
-    </hgroup>
-    <%= image_tag("scaled.JPG") %>
-    <div id="searchform">
-
-      <div class="nav">
-        <ul class="hmenu">
-          <%= render 'devise/menu/login_items' %>
-        </ul>
+      <h1 id="site-title"><%= link_to "GDX", "/", :class => "white-background" %></h1>
+      <h2 id="site-description">Geographical Data eXchange</h2>
+      <div id="searchform">
+        <div class="nav">
+          <ul class="hmenu">
+            <%= render 'devise/menu/login_items' %>
+          </ul>
+        </div>
       </div>
-	</div>
+      </hgroup>
       <nav id="access" role="navigation">
       <h3 class="assistive-text"><%= t('assistive.main_menu') %></h3>
             <div class="menu">
