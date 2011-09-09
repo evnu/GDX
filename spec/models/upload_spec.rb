@@ -59,4 +59,20 @@ describe Upload do
 
     pending "it should only allow certain tags for a description and sanitize input"
   end
+
+  describe :tags do
+    it "should add tags when inserting a document" do
+      upload = Upload.new @valid_attributes
+      upload.save
+      Upload.all_tags.should == [ {:name => "tag", :count => 1}]
+    end
+
+    it "should refresh the tags after deleting a document" do
+      upload = Upload.new @valid_attributes
+      upload.save
+      Upload.all_tags.should == [ {:name => "tag", :count => 1}]
+      upload.destroy
+      Upload.all_tags.should == []
+    end
+  end
 end

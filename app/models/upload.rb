@@ -3,6 +3,8 @@ require 'carrierwave/mongoid'
 class Upload
   include Mongoid::Document
   include Mongoid::Document::Taggable
+  after_destroy :rebuild_tags
+
   belongs_to :user
 
   mount_uploader :file, FileUploader
