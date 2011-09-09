@@ -6,6 +6,10 @@ describe Upload do
   it{ should validate_presence_of :user }
   it{ should validate_length_of :description }
 
+  def valid_attributes
+    { :name => "some uploaded file", :tags => ["tag"], :user => @user, :description => "a description"}
+  end
+
   before :each do
     # put some elements into the database
     user_attributes = {:name => "Joe Doe", :email => "auser@domain.org",
@@ -13,15 +17,13 @@ describe Upload do
       :password_confirmation => "his password" }
     @user = User.new user_attributes
 
-    @valid_attributes = { :name => "some uploaded file", :tags => ["tag"], :user => @user,
-     :description => "a description"}
   end
 
   context "Search" do
     before :each do
-      @entry1 = Upload.new( @valid_attributes )
+      @entry1 = Upload.new( valid_attributes )
       @entry1.save
-      @entry2 = Upload.new( @valid_attributes.merge :tags => ["tag", "another tag"] )
+      @entry2 = Upload.new( valid_attributes.merge :tags => ["tag", "another tag"] )
       @entry2.save
     end
 
@@ -48,25 +50,25 @@ describe Upload do
 
   describe :description do
     it "should disallow descriptions with more than 500 characters" do
-      upload = Upload.new( @valid_attributes.merge( :description => (0...501).map{'A'}.join.to_s ) )
+      upload = Upload.new( valid_attributes.merge( :description => (0...501).map{'A'}.join.to_s ) )
       upload.should_not be_valid
     end
 
     it "should allow empty descriptions" do
-      upload = Upload.new( @valid_attributes.merge( :description => "" ) )
+      upload = Upload.new( valid_attributes.merge( :description => "" ) )
       upload.should be_valid
     end
   end
 
   describe :tags do
     it "should add tags when inserting a document" do
-      upload = Upload.new @valid_attributes
+      upload = Upload.new valid_attributes
       upload.save
       Upload.all_tags.should == [ {:name => "tag", :count => 1}]
     end
 
     it "should refresh the tags after deleting a document" do
-      upload = Upload.new @valid_attributes
+      upload = Upload.new valid_attributes
       upload.save
       Upload.all_tags.should == [ {:name => "tag", :count => 1}]
       upload.destroy
