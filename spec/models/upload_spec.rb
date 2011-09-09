@@ -56,8 +56,6 @@ describe Upload do
       upload = Upload.new( @valid_attributes.merge( :description => "" ) )
       upload.should be_valid
     end
-
-    pending "it should only allow certain tags for a description and sanitize input"
   end
 
   describe :tags do
