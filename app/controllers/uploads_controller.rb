@@ -1,4 +1,6 @@
 class UploadsController < ApplicationController
+  include ActionView::Helpers::SanitizeHelper
+
   before_filter :authenticate_user!
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
@@ -55,7 +57,11 @@ class UploadsController < ApplicationController
   def create
     @uploader = User.where(:email => current_user.email)
     if @uploader and params[:upload]
-      @upload = Upload.new(params[:upload].merge({:user => @uploader.first}))
+      @upload = Upload.new(params[:upload].merge(
+        {:user => @uploader.first}.merge(
+          {:description => 
+            (sanitize params[:upload][:description], :tags => %w(p strong li ul em a), :attributes => %w(href))})
+      ))
 
       respond_to do |format|
         if @upload.save

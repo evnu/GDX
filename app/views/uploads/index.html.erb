@@ -7,13 +7,15 @@
   Search/Filter uploaded data sets by tags. Insert the tags you want to use in the following 
   input field and separate them either by , or a whitespace.
   </p>
-  <%= link_to 'New Upload', new_upload_path %>
   <%= form_tag uploads_path, :method => "get" do %>
     <%= label_tag :keywords %>
     <%= text_field_with_auto_complete :keywords, :taglist, { :size => 15 }, { :url => "tags/index.js", :method => :get, :param_name => 'tag',
       :tokens => [","," "]} %>
       <%= submit_tag "Search", :name => nil %>
     <% end %>
+
+    <h2 class="entry-title">Create new Upload</h2>
+    <%= link_to 'New Upload', new_upload_path %>
     <h2 class="entry-title">Listing uploads</h2>
 
     <% if not @uploads.empty? %>
