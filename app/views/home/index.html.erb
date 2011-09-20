@@ -1,8 +1,10 @@
 <% content_for :title do %>
-  Home
+  Welcome to GDX
 <% end %>
 
 <% content_for :content do %>
+  Welcome to GDX, a sharing hub for hub for project teams aggregating statistical and spatial data for research
+  purposes.
   <h2 class="entry-title">List of Users</h2>
   <% @users.each do |user| %>
     <p>User: <%= link_to user.name, user %></p>
