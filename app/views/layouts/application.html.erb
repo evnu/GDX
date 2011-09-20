@@ -1,7 +1,7 @@
   <!DOCTYPE html>
   <html>
   <head>
-    <title>GridFS</title>
+    <title>GDX</title>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "unfold" %>
@@ -27,10 +27,11 @@
       document.write('<header id="branding" role="banner" style="background-image: url(' + image + '); background-repeat: no-repeat">');
       </script>
       <hgroup>
-      <h1 id="site-title"><a href="http://0.0.0.0:3000/">
-          <span class="white-background" style="padding: 5px; color: black">GDX</span>
-      </a>
-    </h1>
+      <h1 id="site-title">
+        <span class="white-background" style="padding: 15px; color: black">
+          <%= link_to "GDX", root_path, :class => "white-background" %>
+        </span>
+      </h1>
       <h2 id="site-description"><span class="white-background" style="padding: 5px">Geographical Data eXchange</span></h2>
       <div id="searchform">
         <div class="nav white-background">
