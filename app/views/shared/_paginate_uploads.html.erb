@@ -1,0 +1,5 @@
+<% if not @uploads.empty? %>
+  <% (0..@paginated_uploads.num_pages-1).each do |page| %>
+    <%= link_to_unless_current "#{page + 1}", request.parameters.merge({:page => page, :keywords => params[:keywords] }) %>
+  <% end %>
+<% end %>
