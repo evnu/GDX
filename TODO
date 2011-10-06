@@ -1,10 +1,18 @@
 TODO
     * Unit tests für das frontend
-    * Geotagging überlegen
+        - cucumber
+        - complete rspec specification
+    * Geotagging?
         - Spatial MongoDB?
-    * README
+        - OpenLayers
+    * Write a README
         - Installation
-            - Administratorpasswort festlegen
+            - setting administrator password
         - Tipps
     * LICENSE
         - Kompatibilität mit Lizenzen des referenzierten Codes prüfen
+    * Javascript issues
+        - Uploads index view: fix fold-unfold in table - should change text from fold ->
+        unfold and vice versa
+    * Devise
+        - Allow password recovery using email
