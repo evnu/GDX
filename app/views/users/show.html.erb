@@ -7,6 +7,10 @@
 This is the personal page of <%= @user.name %>.
 </p>
 
+<p>
+<h3>Description</h3>
+<%= raw @user.description %></p>
+
 <% if user_signed_in? %>
 <h3>List of Files</h3>
 <%= render "shared/paginate_uploads", { :uploads => @uploads, :paginated_uploads => @paginated_uploads } %>

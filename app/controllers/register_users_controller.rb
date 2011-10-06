@@ -1,5 +1,7 @@
 class RegisterUsersController < ApplicationController
   before_filter :authenticate_admin!
+  uses_tiny_mce
+
   # GET /register_users
   # GET /register_users.xml
   def index

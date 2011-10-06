@@ -10,7 +10,9 @@ class User
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false
 
+  field :description, :type => String
+
   validates :email, :presence => true, :email => true
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :description
 
 end
